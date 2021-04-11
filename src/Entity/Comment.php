@@ -29,7 +29,12 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *      paginationItemsPerPage=2,
  *      paginationPartial=false,
  *      normalizationContext={"groups"={"read:comment"}},
- *      collectionOperations={"get"},
+ *      collectionOperations={
+ *          "get", 
+ *          "post"={
+ *              "controller"=App\Services\CommentCreateService::class
+ *          }
+ *      },
  *      itemOperations={
  *          "get"={
  *              "normalization_context"={"groups"={

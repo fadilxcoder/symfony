@@ -12,6 +12,7 @@
 - https://symfony.com/doc/current/the-fast-track/en/26-api.html (Exposing an API with API Platform)
 - https://api-platform.com/docs/core/configuration/ (Configuration `config\packages\api_platform.yaml`)
 - https://api-platform.com/docs/core/filters/ (Filters)
+- https://api-platform.com/docs/core/controllers/#creating-custom-operations-and-controllers (Custom Operations and Controllers)
 
 # Requests URLs
 
