@@ -27,9 +27,16 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *          "order"= {"publishedAt": "DESC"},
  *      },
  *      paginationItemsPerPage=2,
+ *      paginationPartial=false,
  *      normalizationContext={"groups"={"read:comment"}},
  *      collectionOperations={"get"},
- *      itemOperations={"get"}
+ *      itemOperations={
+ *          "get"={
+ *              "normalization_context"={"groups"={
+ *                  "read:comment", "read:full:comment"
+ *              }}
+ *          }
+ *      }
  * )
  * @ApiFilter(
  *      SearchFilter::class, properties={"post":"exact"}
@@ -61,6 +68,7 @@ class Comment
      *
      * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"read:full:comment"})
      */
     private $post;
 
