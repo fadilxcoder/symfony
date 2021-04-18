@@ -31,7 +31,8 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
  *      normalizationContext={"groups"={"read:comment"}},
  *      collectionOperations={
  *          "get", 
- *          "post"={
+ *          "post"={    
+ *              "security"="is_granted('IS_AUTHENTICATED_FULLY')",
  *              "controller"=App\Services\CommentCreateService::class
  *          }
  *      },
