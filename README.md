@@ -1,7 +1,8 @@
 # NOTES
 
+- Init app by `php bin/console doctrine:database:create && php bin/console doctrine:schema:update --force && php bin/console doctrine:fixtures:load`
 - `composer req api` : Installation of API platform
-- Headers : *Accept : application/ld+json*
+- Headers : `Accept : application/ld+json`
 - Entity exposed to API : `src\Entity\Comment.php`
 - Configuration files : `config\packages\api_platform.yaml` & `config\packages\nelmio_cors.yaml`
 - `collectionOperations` - related to collection
@@ -18,10 +19,12 @@
 
 # Requests URLs
 
-- http://localhost:7575/api/comments/307 - By ID
-- http://demo.symfony.local/api/comments?page=1 - Pagination
-- http://demo.symfony.local/api/comments?post=31 - By Post
-- http://demo.symfony.local/api/comments?post=31&page=2 - By Post & Pagination
+- http://api-platform.symfony.local/ - BASE
+- http://api-platform.symfony.local/api - API plateform
+- http://api-platform.symfony.local/api/comments/307 - By ID
+- http://api-platform.symfony.local/api/comments?page=1 - Pagination
+- http://api-platform.symfony.local/api/comments?post=31 - By Post
+- http://api-platform.symfony.local/api/comments?post=31&page=2 - By Post & Pagination
 
 # Codebase
 
