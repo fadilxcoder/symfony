@@ -9,6 +9,7 @@
 - Start symfony server : `symfony server:start`
 - Added `composer require symfony/maker-bundle --dev`
 - **NOTE** if `/api` is showing 404, install `composer require symfony/apache-pack`
+- Add `Symfony profiler` by `composer req symfony/web-profiler-bundle` and verify URLs by `php bin/console debug:router`, then just go to `<URL>/_profiler`
 
 ## Documentation
 
@@ -39,3 +40,28 @@
 }
 ````
 - `normalizationContext` concerns more the `GET` and is related to when you are reading data from your API
+
+````
+ * @ApiResource(
+ *     normalizationContext={
+ *          "groups": {
+ *              "posts.get.read"
+ *          }
+ *     }
+ * )
+ .
+ .
+class Post
+
+.
+.
+
+ * @Groups(
+ *     {
+ *          "posts.get.read"
+ *     }
+ * )
+ */
+private $title;
+
+````
