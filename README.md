@@ -9,3 +9,9 @@
 - Start symfony server : `symfony server:start`
 - Added `composer require symfony/maker-bundle --dev`
 - *NOTE* if `/api` is showing 404, install `composer require symfony/apache-pack`
+
+## Usage
+
+- Enabling crud enpoints can be done in 2 ways, need to modify `config/api_platform.yaml`
+- - Using `Entity`, check `src/Entity/Post.php`
+- - Using`yaml`, check `config/api_platform/resources.yaml`
