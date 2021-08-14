@@ -5,9 +5,15 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={
+ *          "groups": {
+ *              "posts.get.read"
+ *          }
+ *     }
+ * )
  * @ORM\Entity(repositoryClass=PostRepository::class)
  */
 class Post
@@ -16,21 +22,41 @@ class Post
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups(
+     *     {
+     *          "posts.get.read"
+     *     }
+     * )
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups(
+     *     {
+     *          "posts.get.read"
+     *     }
+     * )
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups(
+     *     {
+     *          "posts.get.read"
+     *     }
+     * )
      */
     private $slug;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups(
+     *     {
+     *          "posts.get.read"
+     *     }
+     * )
      */
     private $content;
 
@@ -43,6 +69,16 @@ class Post
      * @ORM\Column(type="datetime_immutable")
      */
     private $updatedAt;
+
+    /**
+     * @Groups(
+     *     {
+     *          "posts.get.read"
+     *     }
+     * )
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="posts")
+     */
+    private $category;
 
     public function getId(): ?int
     {
@@ -105,6 +141,18 @@ class Post
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
