@@ -15,6 +15,7 @@
 
 - https://symfony.com/doc/current/components/serializer.html (The Serializer Component)
 - https://api-platform.com/docs/core/serialization/ (The Serialization Process)
+- https://api-platform.com/docs/core/operations/ (Operations)
 
 ## Database Structure
 
@@ -39,13 +40,13 @@
   "category" : "/api/categories/2"
 }
 ````
-- `normalizationContext` concerns more the `GET` and is related to when you are reading data from your API
+- `normalizationContext` concerns more the `GET` and is related to when you are reading data from your API, so ALL endpoints that are tiggered will JSON response based on the `"groups"` they are connected to, i.e `read.post.collection`
 
 ````
  * @ApiResource(
  *     normalizationContext={
  *          "groups": {
- *              "posts.get.read"
+ *              "read.post.collection"
  *          }
  *     }
  * )
@@ -58,10 +59,34 @@ class Post
 
  * @Groups(
  *     {
- *          "posts.get.read"
+ *          "read.post.collection"
  *     }
  * )
  */
 private $title;
 
+````
+
+- Collection operations : `GET` & `POST`
+- Item operations : `GET` & `PUT` & `DELETE` & `PATCH`
+- `itemOperations` for `put` has `denormalization_context` with group `write.post.item` and so does attribute `$id`, `$slug` and `$category`
+
+````
+ *          "put": {
+ *              "denormalization_context": {
+ *                  "groups": {
+ *                      "write.post.item"
+ *                  }
+ *              }
+ *          }
+````
+- So if you do a `PUT` with the following, `content` will **NOT** be updated
+
+````
+{
+  "title": "Alternative Method",
+  "slug": "api_platform.jsonld.normalizer.item",
+  "content": "Just like other Symfony and API Platform components, the Serializer component can be configured using annotations, XML or YAML.",
+  "category": "/api/categories/2"
+}
 ````

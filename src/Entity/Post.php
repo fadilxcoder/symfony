@@ -10,7 +10,24 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ApiResource(
  *     normalizationContext={
  *          "groups": {
- *              "posts.get.read"
+ *              "read.post.collection"
+ *          }
+ *     },
+ *     itemOperations={
+ *          "get": {
+ *              "normalization_context": {
+ *                  "groups": {
+ *                      "read.post.collection",
+ *                      "read.post.item"
+ *                  }
+ *              }
+ *          },
+ *          "put": {
+ *              "denormalization_context": {
+ *                  "groups": {
+ *                      "write.post.item"
+ *                  }
+ *              }
  *          }
  *     }
  * )
@@ -24,7 +41,7 @@ class Post
      * @ORM\Column(type="integer")
      * @Groups(
      *     {
-     *          "posts.get.read"
+     *          "read.post.collection"
      *     }
      * )
      */
@@ -34,7 +51,8 @@ class Post
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Groups(
      *     {
-     *          "posts.get.read"
+     *          "read.post.collection",
+     *          "write.post.item"
      *     }
      * )
      */
@@ -44,7 +62,8 @@ class Post
      * @ORM\Column(type="string", length=255)
      * @Groups(
      *     {
-     *          "posts.get.read"
+     *          "read.post.collection",
+     *          "write.post.item"
      *     }
      * )
      */
@@ -54,7 +73,7 @@ class Post
      * @ORM\Column(type="text")
      * @Groups(
      *     {
-     *          "posts.get.read"
+     *          "read.post.item"
      *     }
      * )
      */
@@ -62,6 +81,11 @@ class Post
 
     /**
      * @ORM\Column(type="datetime_immutable")
+     * @Groups(
+     *     {
+     *          "read.post.item"
+     *     }
+     * )
      */
     private $createdAt;
 
@@ -73,7 +97,8 @@ class Post
     /**
      * @Groups(
      *     {
-     *          "posts.get.read"
+     *          "read.post.item",
+     *          "write.post.item"
      *     }
      * )
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="posts")
