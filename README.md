@@ -90,3 +90,55 @@ private $title;
   "category": "/api/categories/2"
 }
 ````
+
+- Using validation - rule on *Insert* only, will prevent from POST title < 5 characters & will allow PUT < 5 characters
+- Validation on relationship between entity uses `@Assert\Valid()`
+- Use for testing on *API Swagger*
+
+````
+{
+  "title": "API Platform, c’est trop swag !",
+  "slug": "creer-facilement-une-api-rest-avec-symfony-api-platform",
+  "content": "Afin de découvrir la création avec API Platform , configurer une nouvelle application Symfony Flex.",
+  "category": {
+     "name": "MERN"
+  }
+}
+````
+
+
+- On Class
+
+````
+ *     collectionOperations={
+ *          "get",
+ *          "post": {
+ *              "validation_groups": {
+ *                  "create.post.item"
+ *              }
+ *          }
+ *     },
+````
+
+- - On attribute `$title`
+
+````
+     * @Assert\Length(min=5, groups={"create.post.item"})
+````
+- - ManyToOne in `Post.php`
+
+````
+     * )
+     * @Assert\Valid()
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="posts", cascade={"persist"})
+     */
+    private $category;
+````
+
+- - `$name` in `Category.php`
+
+````
+     * @Assert\Length(min=5, groups={"create.post.item"})
+     */
+    private $name;
+````

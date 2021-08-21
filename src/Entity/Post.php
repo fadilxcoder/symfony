@@ -6,11 +6,26 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\PostRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ApiResource(
  *     normalizationContext={
  *          "groups": {
  *              "read.post.collection"
+ *          }
+ *     },
+ *     denormalizationContext={
+ *          "groups": {
+ *              "write.post.item"
+ *          }
+ *     },
+ *     collectionOperations={
+ *          "get",
+ *          "post": {
+ *              "validation_groups": {
+ *                  "create.post.item"
+ *              }
  *          }
  *     },
  *     itemOperations={
@@ -55,6 +70,7 @@ class Post
      *          "write.post.item"
      *     }
      * )
+     * @Assert\Length(min=5, groups={"create.post.item"})
      */
     private $title;
 
@@ -73,7 +89,8 @@ class Post
      * @ORM\Column(type="text")
      * @Groups(
      *     {
-     *          "read.post.item"
+     *          "read.post.item",
+     *          "write.post.item"
      *     }
      * )
      */
@@ -101,9 +118,17 @@ class Post
      *          "write.post.item"
      *     }
      * )
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="posts")
+     * @Assert\Valid()
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="posts", cascade={"persist"})
      */
     private $category;
+
+    public function __construct()
+    {
+        # HACK - added to keep prevent sending these values on each API request
+        $this->setCreatedAt(new \DateTimeImmutable());
+        $this->setUpdatedAt(new \DateTimeImmutable());
+    }
 
     public function getId(): ?int
     {
