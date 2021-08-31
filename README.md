@@ -142,3 +142,11 @@ private $title;
      */
     private $name;
 ````
+
+# Tutorial SymfonyCasts (https://symfonycasts.com/screencast/api-platform)
+
+- Test api response directly in browser by http://api.platform.local/api/cheese_listings/2.jsonld
+- Api platform uses `config/routes/api_platform.yaml` uses the `type` to dynamically add routes based on classes having `@ApiResource()`
+- JSON docs : `http://api.platform.local/docs.json`
+- `@id` - known as IRI
+- Every URL is a resource, you can check main entrypoint by `curl -X GET 'http://api.platform.local/' -H "accept:application/ld+json"`
