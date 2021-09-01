@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource()
+ * @-ApiResource()
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
 class Category
