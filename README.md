@@ -22,9 +22,15 @@
 - Operations (GET, POST, GET(1), DELETE, PUT) :
 - - Collection Operations - See in swagger, where Entity does **not** have `{id}`, i.e you are getting a collection or adding to the collection (`GET`, `POST`)
 - - Item Operations
-- From Object to Json => *serialize*
-- From Json to Object => *deserialize*
+- From Object to Json => **Serialize**
+- From Json to Object => **Deserialize**
+- From Object to Array => **Normalization** - Reading data from API
+- From Array to Object => **Denormalization** - Sending data to API
+
+<img src="https://api-platform.com/static/f5bf57af8c8a3275d8ba1c9ced6e890d/39a20/SerializerWorkflow.png" />
+
 - `composer req nesbot/carbon` - for date/time utility management
+- `swagger_definition_name` is the part below in swagger GUI (Schemas) section
 
 ## Documentation
 
