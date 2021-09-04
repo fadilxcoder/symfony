@@ -31,6 +31,7 @@
 
 - `composer req nesbot/carbon` - for date/time utility management
 - `swagger_definition_name` is the part below in swagger GUI (Schemas) section
+- `SerializedName` used to change json output in swagger GUI
 
 ## Documentation
 

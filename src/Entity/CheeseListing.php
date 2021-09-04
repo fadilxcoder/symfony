@@ -7,6 +7,7 @@ use App\Repository\CheeseListingRepository;
 use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @ApiResource(
@@ -136,6 +137,8 @@ class CheeseListing
      *          "cheese_listing:write"
      *     }
      * )
+     *
+     * @SerializedName("description")
      */
     public function setTextDescription(string $description): self
     {
