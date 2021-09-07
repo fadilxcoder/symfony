@@ -34,6 +34,7 @@
 - `SerializedName` used to change json output in swagger GUI
 - Added `@ApiFilter` on class, new filters element appears on swagger GUI for GET Collection
 - When using `PropertyFiler`, check URL `http://api.platform.local/yo-single-cheezzyy/1.jsonld?properties[]=title&properties[]=shortDescription` in API Tester for specified fields in paramaters
+- To view configs of api platform, run ` php bin/console debug:config api_platform`
 
 ## Documentation
 

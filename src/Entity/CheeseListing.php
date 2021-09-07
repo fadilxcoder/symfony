@@ -38,7 +38,10 @@ use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
  *          },
  *          "swagger_definition_name"="Write"
  *     },
- *     shortName="cheeses"
+ *     shortName="cheeses",
+ *     attributes={
+ *          "pagination_items_per_page"=15
+ *     }
  * )
  * @ORM\Entity(repositoryClass=CheeseListingRepository::class)
  * @ApiFilter(
