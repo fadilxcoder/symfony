@@ -32,12 +32,15 @@
 - `composer req nesbot/carbon` - for date/time utility management
 - `swagger_definition_name` is the part below in swagger GUI (Schemas) section
 - `SerializedName` used to change json output in swagger GUI
+- Added `@ApiFilter` on class, new filters element appears on swagger GUI for GET Collection
+- When using `PropertyFiler`, check URL `http://api.platform.local/yo-single-cheezzyy/1.jsonld?properties[]=title&properties[]=shortDescription` in API Tester for specified fields in paramaters
 
 ## Documentation
 
 - https://symfony.com/doc/current/components/serializer.html (The Serializer Component)
 - https://api-platform.com/docs/core/serialization/ (The Serialization Process)
 - https://api-platform.com/docs/core/operations/ (Operations)
+- https://api-platform.com/docs/core/filters/ (Filters)
 
 ## Database Structure
 
