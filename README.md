@@ -50,6 +50,7 @@ formats:
             - text/html
 ````
 - Can also add for specific Entity, see `CheeseListing.php` - `"formats"`
+- For validation input JSON data, use `@Assert\` in Entity
 
 ## Documentation
 
