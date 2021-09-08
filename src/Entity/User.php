@@ -2,13 +2,31 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * @ApiResource(
+ *      shortName="List of users",
+ *      normalizationContext={
+ *          "groups"={
+ *              "user:read"
+ *          }
+ *      },
+ *      denormalizationContext={
+ *          "groups"={
+ *              "user:write"
+ *          }
+ *      }
+ * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"})
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -21,6 +39,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups(
+     *     {
+     *          "user:read",
+     *          "user:write"
+     *     }
+     * )
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
@@ -32,6 +58,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Groups(
+     *     {
+     *           "user:write"
+     *     }
+     * )
      */
     private $password;
 
