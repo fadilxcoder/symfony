@@ -40,7 +40,16 @@ use ApiPlatform\Core\Serializer\Filter\PropertyFilter;
  *     },
  *     shortName="cheeses",
  *     attributes={
- *          "pagination_items_per_page"=15
+ *          "pagination_items_per_page"=15,
+ *          "formats"={
+ *              "jsonld",
+ *              "json",
+ *              "html",
+ *              "jsonhal",
+ *              "csv"={
+ *                  "text/csv"
+ *              }
+ *          }
  *     }
  * )
  * @ORM\Entity(repositoryClass=CheeseListingRepository::class)

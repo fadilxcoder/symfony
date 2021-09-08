@@ -35,6 +35,21 @@
 - Added `@ApiFilter` on class, new filters element appears on swagger GUI for GET Collection
 - When using `PropertyFiler`, check URL `http://api.platform.local/yo-single-cheezzyy/1.jsonld?properties[]=title&properties[]=shortDescription` in API Tester for specified fields in paramaters
 - To view configs of api platform, run ` php bin/console debug:config api_platform`
+- - See list of available formats (added in `api_platform.yaml`)
+
+````
+formats:
+    jsonld:
+        mime_types:
+            - application/ld+json
+    json:
+        mime_types:
+            - application/json
+    html:
+        mime_types:
+            - text/html
+````
+- Can also add for specific Entity, see `CheeseListing.php` - `"formats"`
 
 ## Documentation
 
