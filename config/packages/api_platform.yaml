@@ -18,3 +18,5 @@ api_platform:
         jsonhal:
             mime_types:
                 - application/hal+json
+    eager_loading:
+        force_eager: false

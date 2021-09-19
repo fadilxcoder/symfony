@@ -98,7 +98,8 @@ class CheeseListing
      *     {
      *          "cheese_listing:read",
      *          "cheese_listing:write",
-     *          "user:read"
+     *          "user:read",
+     *          "user:write"
      *     }
      * )
      * @Assert\NotBlank()
@@ -114,7 +115,8 @@ class CheeseListing
      * @ORM\Column(type="text")
      * @Groups(
      *     {
-     *          "cheese_listing:read"
+     *          "cheese_listing:read",
+     *          "user:write"
      *     }
      * )
      * @Assert\NotBlank()
@@ -129,7 +131,8 @@ class CheeseListing
      *     {
      *          "cheese_listing:read",
      *          "cheese_listing:write",
-     *          "user:read"
+     *          "user:read",
+     *          "user:write"
      *     }
      * )
      * @Assert\NotBlank()
@@ -155,7 +158,8 @@ class CheeseListing
      * @Groups(
      *     {
      *          "cheese_listing:read",
-     *          "cheese_listing:write"
+     *          "cheese_listing:write",
+     *          "user:write"
      *     }
      * )
      * @Assert\Valid()
@@ -222,7 +226,8 @@ class CheeseListing
      *
      * @Groups(
      *     {
-     *          "cheese_listing:write"
+     *          "cheese_listing:write",
+     *          "user:write"
      *     }
      * )
      *

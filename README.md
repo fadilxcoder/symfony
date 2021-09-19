@@ -80,6 +80,53 @@ formats:
 }
 ````
 
+- Creating a New user and assigning an existing cheese listing with it by POST in *User*, If you are using the Object version, you must configure the Entity, add group to the properties & `cascade={"persist"}`
+
+````
+{
+  "email": "userxxxxx001@api-platform.com",
+  "password": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "cheeseListings": [
+    "/yo-single-cheezzyy/26"
+  ]
+}
+
+OR
+
+{
+  "email": "userxxxxx002@api-platform.com",
+  "password": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "cheeseListings": [
+    {
+      "title": "Apprendre grâce à plusieurs formats",
+      "description": "Vous cherchez une formation complète pour apprendre de A à Z ou une vidéo pour découvrir un nouvel outil ? Vous devriez trouver votre bonheur",
+      "price": 9614
+    }
+  ]
+}
+````
+
+- User have multiple cheese listing, you can remove some by
+
+````
+FROM
+
+{
+  "cheeseListings": [
+    "/yo-single-cheezzyy/4",
+    "/yo-single-cheezzyy/27"
+  ]
+}
+
+TO
+
+{
+  "cheeseListings": [
+    "/yo-single-cheezzyy/27"
+  ]
+}
+````
+
 ## Documentation
 
 - https://symfony.com/doc/current/components/serializer.html (The Serializer Component)

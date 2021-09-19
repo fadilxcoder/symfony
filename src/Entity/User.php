@@ -71,12 +71,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity=CheeseListing::class, mappedBy="owner")
+     * @ORM\OneToMany(targetEntity=CheeseListing::class, mappedBy="owner", cascade={"persist"}, orphanRemoval=true)
      * @Groups(
      *     {
-     *          "user:read"
+     *          "user:read",
+     *          "user:write"
      *     }
      * )
+     * @Assert\Valid()
      */
     private $cheeseListings;
 
