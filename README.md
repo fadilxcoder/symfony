@@ -11,6 +11,7 @@
 - **NOTE** if `/api` is showing 404, install `composer require symfony/apache-pack`
 - **NOTE** Post & Category Entities are **disabled**, Enable them to test.
 - Add `Symfony profiler` by `composer req symfony/web-profiler-bundle` /  `composer require profiler --dev` and verify URLs by `php bin/console debug:router`, then just go to `<URL>/_profiler`
+- ` php bin/console doctrine:schema:drop --full-database --force` - Remove everything
 
 ## SymfonyCasts (https://symfonycasts.com/screencast/api-platform)
 
@@ -51,6 +52,22 @@ formats:
 ````
 - Can also add for specific Entity, see `CheeseListing.php` - `"formats"`
 - For validation input JSON data, use `@Assert\` in Entity
+- Relationship between users & cheese listings
+- - Users : `1 User has 1/∞ Cheese`
+- - Cheese : `1 Cheese has 1 User`
+- Saving a new chees will be - POST *cheeses*, `"owner"` should be `"@id"` of hydra member
+
+````
+{
+  "title": "Faker Cloud",
+  "price": 4552,
+  "owner": "/list-of-users/5",
+  "description": "faker.js - generate massive amounts of fake data in the browser and node.js"
+}
+````
+
+- Display all cheese related to a user by assigning `$cheeseListings` in `User.php` to the `"user:read"` group 
+- Display user in cheese GET by assigning `"cheese_listing:read",` to the `$email` in `User.php`
 
 ## Documentation
 

@@ -23,7 +23,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     },
  *     itemOperations={
  *          "get"={
- *              "path"="/yo-single-cheezzyy/{id}"
+ *              "path"="/yo-single-cheezzyy/{id}",
+ *              "normalization_context"={
+ *                  "groups"={
+ *                      "cheese_listing:read",
+ *                      "cheese_listing:item:get"
+ *                  }
+ *              }
  *          },
  *          "put"
  *     },
@@ -91,7 +97,8 @@ class CheeseListing
      * @Groups(
      *     {
      *          "cheese_listing:read",
-     *          "cheese_listing:write"
+     *          "cheese_listing:write",
+     *          "user:read"
      *     }
      * )
      * @Assert\NotBlank()
@@ -121,7 +128,8 @@ class CheeseListing
      * @Groups(
      *     {
      *          "cheese_listing:read",
-     *          "cheese_listing:write"
+     *          "cheese_listing:write",
+     *          "user:read"
      *     }
      * )
      * @Assert\NotBlank()
@@ -140,6 +148,18 @@ class CheeseListing
      * @ORM\Column(type="boolean")
      */
     private $isPublished;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="cheeseListings")
+     * @ORM\JoinColumn(nullable=false)
+     * @Groups(
+     *     {
+     *          "cheese_listing:read",
+     *          "cheese_listing:write"
+     *     }
+     * )
+     */
+    private $owner;
 
     public function __construct()
     {
@@ -261,6 +281,18 @@ class CheeseListing
     public function setIsPublished(bool $isPublished): self
     {
         $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
 
         return $this;
     }
