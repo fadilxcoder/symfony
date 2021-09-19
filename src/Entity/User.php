@@ -46,6 +46,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *          "user:read",
      *          "user:write",
      *          "cheese_listing:item:get",
+     *          "cheese_listing:write"
      *     }
      * )
      * @Assert\NotBlank()
