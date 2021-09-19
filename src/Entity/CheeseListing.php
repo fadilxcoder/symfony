@@ -158,6 +158,7 @@ class CheeseListing
      *          "cheese_listing:write"
      *     }
      * )
+     * @Assert\Valid()
      */
     private $owner;
 

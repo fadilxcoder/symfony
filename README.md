@@ -69,7 +69,7 @@ formats:
 - Display all cheese related to a user by assigning `$cheeseListings` in `User.php` to the `"user:read"` group 
 - Display user in cheese GET by assigning `"cheese_listing:read",` to the `$email` in `User.php`
 
-- Updating a user by using the cheese PUT operation 
+- Updating a user by using the cheese PUT operation - Use **@Assert\Valid()** for validating FK properties found un `User.php`
 
 ````
 {
