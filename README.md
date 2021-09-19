@@ -127,6 +127,7 @@ TO
 }
 ````
 - Filter by FK, add filter `"owner.email"` is CL `SearchFilter::class` section
+- CL is like a child of User, you can add `@ApiSubresource()` so that you have a URL `/list-of-users/<ID>/cheese_listing` for getting list of CL of the user with <ID>
 
 ## Documentation
 
