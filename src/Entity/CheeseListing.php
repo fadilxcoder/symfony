@@ -70,7 +70,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     SearchFilter::class,
  *     properties={
  *          "title": "partial",
- *          "description": "partial"
+ *          "description": "partial",
+ *          "owner": "exact",
+ *          "owner.email": "partial"
  *     }
  * )
  * @ApiFilter(

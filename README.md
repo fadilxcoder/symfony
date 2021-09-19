@@ -126,6 +126,7 @@ TO
   ]
 }
 ````
+- Filter by FK, add filter `"owner.email"` is CL `SearchFilter::class` section
 
 ## Documentation
 
