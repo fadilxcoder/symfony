@@ -9,13 +9,17 @@ use App\Repository\BlogPostRepository as BlogRepository;
 
 class BlogController extends AbstractController
 {
+	private $blogRepository;
+	
     public function __construct(
-        private BlogRepository $blogRepository
+        BlogRepository $blogRepository
     ) {
-
+		$this->blogRepository = $blogRepository;
     }
 
-    #[Route('/', name: 'blog')]
+	/**
+     * @Route("/", name="blog")
+     */
     public function index(): Response
     {
         dd($this->blogRepository->findAll());
