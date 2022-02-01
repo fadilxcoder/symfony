@@ -9,13 +9,9 @@ use App\Repository\BlogPostRepository as BlogRepository;
 
 class BlogController extends AbstractController
 {
-	private $blogRepository;
-	
-    public function __construct(
-        BlogRepository $blogRepository
-    ) {
-		$this->blogRepository = $blogRepository;
-    }
+	public function __construct(private BlogRepository $blogRepository)
+				{
+				}
 
 	/**
      * @Route("/", name="blog")
