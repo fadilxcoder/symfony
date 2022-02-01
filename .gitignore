@@ -23,3 +23,4 @@
 .home/
 docker-compose.override.yml
 docker-compose.yml
+.idea
