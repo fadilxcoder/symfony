@@ -48,7 +48,7 @@ class BlogPost
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="blogpost", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="blogpost", orphanRemoval=true)
      */
     private $comments;
 
