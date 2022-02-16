@@ -9,11 +9,22 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-#[ApiResource]
+#[ApiResource(
+    collectionOperations: [
+        "post"
+    ],
+    itemOperations: [
+        "get"
+    ],
+    normalizationContext: [
+        "groups" => ["read"]
+    ]
+)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
@@ -21,11 +32,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
+    #[Groups(["read"])]
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
+    #[Groups(["read"])]
     private $username;
 
     /**
@@ -36,21 +49,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
+    #[Groups(["read"])]
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
+    #[Groups(["read"])]
     private $email;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\BlogPost", mappedBy="author")
      */
+    #[Groups(["read"])]
     private $posts;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="author")
      */
+    #[Groups(["read"])]
     private $comments;
 
     public function __construct()
