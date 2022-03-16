@@ -16,6 +16,8 @@
      *     "this.getPassword() === this.getRetypePassword()"
      * )
 ````
+- JWT
+- - `composer require lexik/jwt-authentication-bundle` (https://packagist.org/packages/lexik/jwt-authentication-bundle)
 
 ### Refactoring of any PHP code
 
