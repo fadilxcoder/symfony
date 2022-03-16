@@ -9,19 +9,22 @@ use App\Repository\BlogPostRepository as BlogRepository;
 
 class BlogController extends AbstractController
 {
-	public function __construct(private BlogRepository $blogRepository)
-				{
-				}
+    public function __construct(
+        private BlogRepository $blogRepository
+    ) {
+    }
 
-	/**
+    /**
      * @Route("/", name="blog")
      */
     public function index(): Response
     {
-        dd($this->blogRepository->findAll());
+        $all = $this->blogRepository->findAll();
+        dump($all);
 
         return $this->render('blog/index.html.twig', [
             'controller_name' => 'BlogController',
+            'blogs' => $all
         ]);
     }
 }

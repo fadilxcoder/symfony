@@ -24,6 +24,8 @@
 docker-compose.override.yml
 docker-compose.yml
 .idea
+database.sqlite
+database.sqlite-journal
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
 ###< lexik/jwt-authentication-bundle ###

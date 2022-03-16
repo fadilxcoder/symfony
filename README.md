@@ -8,6 +8,7 @@
 - https://regex101.com/ (Regex creation)
 - - Password regex : https://regex101.com/r/CbKzlO/1
 - Event subscriber for hashing password before inserting in DB
+- Load fixtures for database - `php bin\console doctrine:fixtures:load`
 - Constraint validation in **User** entity
 - - **Confirm password validation**
 ````
@@ -18,6 +19,13 @@
 ````
 - JWT
 - - `composer require lexik/jwt-authentication-bundle` (https://packagist.org/packages/lexik/jwt-authentication-bundle)
+- Generate fresh keys in cygwin and copy/paste to project
+- https://jwt.io/
+- - `openssl genrsa -out config/jwt/private.pem 4096`
+- - `openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem`
+- Postman
+- - Dynamic variables (https://learning.postman.com/docs/writing-scripts/script-references/variables-list)
+- - Pre-request script to get JWT in environment and then make actual query
 
 ### Refactoring of any PHP code
 
