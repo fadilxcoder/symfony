@@ -81,7 +81,7 @@ class AppFixtures extends Fixture
     {
         for ($i=1; $i<=self::USER; $i++):
             $user = new User();
-            $user->setUsername($this->faker->iban());
+            $user->setUsername($this->faker->userName());
             $user->setEmail($this->faker->email());
             $user->setName($this->faker->name);
             $user->setPassword($this->userPasswordHasher->hashPassword($user, self::PASSWORD));

@@ -3,6 +3,8 @@
 - Symfony 6 & API platform 2.6.8
 - `composer require symfony/apache-pack` - (https://symfony.com/doc/current/setup/web_server_configuration.html#adding-rewrite-rules)
 - SQLite DB
+- - https://fakerphp.github.io/ (Faker 8)
+- - https://packagist.org/packages/fzaninotto/faker (Faker 5)
 - **URL** : http://symfony-api-platform-react-js-udemy.test:8080/ (Normal route)
 - **URL** : http://symfony-api-platform-react-js-udemy.test:8080/api (API Platform)
 - https://regex101.com/ (Regex creation)
