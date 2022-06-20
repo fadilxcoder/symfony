@@ -9,16 +9,6 @@
 - **URL** : http://symfony-api-platform-react-js-udemy.test:8080/api (API Platform)
 - https://regex101.com/ (Regex creation)
 - - Password regex : https://regex101.com/r/CbKzlO/1
-- Event subscriber for hashing password before inserting in DB
-- Load fixtures for database - `php bin\console doctrine:fixtures:load`
-- Constraint validation in **User** entity
-- - **Confirm password validation**
-````
-     * @Assert\Expression(
-     *     message="Password does not match",
-     *     "this.getPassword() === this.getRetypePassword()"
-     * )
-````
 - JWT
 - - `composer require lexik/jwt-authentication-bundle` (https://packagist.org/packages/lexik/jwt-authentication-bundle)
 - Generate fresh keys in cygwin and copy/paste to project
@@ -28,6 +18,22 @@
 - Postman
 - - Dynamic variables (https://learning.postman.com/docs/writing-scripts/script-references/variables-list)
 - - Pre-request script to get JWT in environment and then make actual query
+
+## Codebase
+
+- Event subscriber for hashing password before inserting in DB - `PasswordHashSubscriber`
+- Load fixtures for database - `php bin\console doctrine:fixtures:load`
+- Constraint validation in **User** entity - **Confirm password validation**
+````
+     * @Assert\Expression(
+     *     message="Password does not match",
+     *     "this.getPassword() === this.getRetypePassword()"
+     * )
+````
+- Assign user automatically for insert
+- - `AuthorEntitySubscriber` : `$this->tokenStorage->getToken()->getUser();`
+- Varifying copyright before giving access - simple
+- - `"access_control" => "object.getAuthor() === user"`
 
 ### Refactoring of any PHP code
 
