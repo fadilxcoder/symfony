@@ -17,6 +17,7 @@
         "lexik/jwt-authentication-bundle": "^2.14",
         "nelmio/cors-bundle": "^2.2",
         "phpdocumentor/reflection-docblock": "^5.3",
+        "ramsey/uuid": "^4.3",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "6.0.*",

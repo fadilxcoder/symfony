@@ -26,6 +26,10 @@ class AuthorEntitySubscriber implements EventSubscriberInterface
         $entity = $event->getControllerResult();
         $user = $this->tokenStorage->getToken()->getUser();
 
+        if (is_array($entity)) {
+            return;
+        }
+
         if (method_exists($entity, 'setAuthor')) {
             $entity->setAuthor($user);
         }
