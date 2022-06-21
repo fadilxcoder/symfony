@@ -20,14 +20,31 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 #[ApiResource(
     collectionOperations: [
-        "post",
+        "post" => [
+            "normalization_context" => [
+                "groups" => ["get"]
+            ],
+            "denormalization_context" => [
+                "groups" => ["post"]
+            ]
+        ],
         "get"
     ],
     itemOperations: [
-        "get"
-    ],
-    normalizationContext: [
-        "groups" => ["read"]
+        "get" => [
+            "normalization_context" => [
+                "groups" => ["get"]
+            ]
+        ],
+        "put" => [
+            "access_control" => "object === user",
+            "normalization_context" => [
+                "groups" => ["get"]
+            ],
+            "denormalization_context" => [
+                "groups" => ["put"]
+            ]
+        ]
     ]
 )]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -37,7 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    #[Groups(["read"])]
+    #[Groups(["get"])]
     private $id;
 
     /**
@@ -45,7 +62,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\NotBlank()
      * @Assert\Length(min=5, max=25)
      */
-    #[Groups(["read"])]
+    #[Groups(["get", "post"])]
     private $username;
 
     /**
@@ -56,6 +73,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *     message="Password must be 7 characters long and 1 digit, 1 uppercase and 1 lower case"
      * )
      */
+    #[Groups(["put", "post"])]
     private $password;
 
     /**
@@ -65,6 +83,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *     "this.getPassword() === this.getRetypePassword()"
      * )
      */
+    #[Groups(["put", "post"])]
     private $retypePassword;
 
     /**
@@ -72,7 +91,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\NotBlank()
      * @Assert\Length(min=5, max=25)
      */
-    #[Groups(["read"])]
+    #[Groups(["get", "post", "put"])]
     private $name;
 
     /**
@@ -80,19 +99,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @Assert\NotBlank()
      * @Assert\Email()
      */
-    #[Groups(["read"])]
+    #[Groups(["post", "put"])]
     private $email;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\BlogPost", mappedBy="author")
      */
-    #[Groups(["read"])]
+    #[Groups(["get"])]
     private $posts;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="author")
      */
-    #[Groups(["read"])]
+    #[Groups(["get"])]
     private $comments;
 
     public function __construct()
@@ -175,7 +194,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removePost(BlogPost $post): self
     {
         if ($this->posts->removeElement($post)) {
-            // set the owning side to null (unless already changed)
+            // set the owning side to null (unless algety changed)
             if ($post->getAuthor() === $this) {
                 $post->setAuthor(null);
             }
@@ -205,7 +224,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
+            // set the owning side to null (unless algety changed)
             if ($comment->getAuthor() === $this) {
                 $comment->setAuthor(null);
             }
@@ -239,7 +258,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->retypePassword;
     }
 
-    public function setRetypePassword($retypePassword): self
+    public function setRetypePassword(string $retypePassword): self
     {
         $this->retypePassword = $retypePassword;
 
