@@ -2,7 +2,9 @@
 	"info": {
 		"_postman_id": "195e210e-46f9-4f0e-a8d6-038ec3002d8c",
 		"name": "API Platform Udemy",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"description": "*   [https://github.com/fadilxcoder/symfony/tree/symfony-api-platform-reactjs-full-stack-masterclass](https://github.com/fadilxcoder/symfony/tree/symfony-api-platform-reactjs-full-stack-masterclass)\n*   Laragon / Udemy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18647677"
 	},
 	"item": [
 		{
@@ -195,8 +197,129 @@
 			]
 		},
 		{
+			"name": "Dependency - Provider",
+			"item": [
+				{
+					"name": "api/dependencies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/dependencies",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"dependencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/dependencies/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/dependencies/038873e5-62ae-58d6-9efe-2dcc9d4fa18c",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"dependencies",
+								"038873e5-62ae-58d6-9efe-2dcc9d4fa18c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "App - Persister",
+			"item": [
+				{
+					"name": "api/apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}api/apps",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/apps",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reference\": \"{{$randomJobArea}}\",\r\n    \"date\": \"{{$randomDateRecent}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/apps",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/apps/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}api/apps/2",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"apps",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "api/ogin_check",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [
 					{
@@ -207,7 +330,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"HelloWorldX711\",\r\n    \"password\": \"HelloWorldX7\"\r\n}",
+					"raw": "{\r\n    \"username\": \"fidel81\",\r\n    \"password\": \"admin\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -284,7 +407,7 @@
 		},
 		{
 			"key": "USERNAME",
-			"value": "IL262788143928594810326",
+			"value": "fidel81",
 			"type": "string"
 		},
 		{
@@ -295,6 +418,18 @@
 		{
 			"key": "jwt",
 			"value": ""
+		},
+		{
+			"key": "BASE_URL",
+			"value": "http://symfony.api.udemy.local/",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "USERNAME",
+			"value": "blanca.kautzer",
+			"type": "string",
+			"disabled": true
 		}
 	]
 }

@@ -34,6 +34,8 @@
 - - `AuthorEntitySubscriber` : `$this->tokenStorage->getToken()->getUser();`
 - Varifying copyright before giving access - simple
 - - `"access_control" => "object.getAuthor() === user"`
+- Swagger UI
+- - `- { path: ^/api/docs, roles: PUBLIC_ACCESS } # Allows accessing the Swagger UI`
 
 ### Refactoring of any PHP code
 
