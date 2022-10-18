@@ -1,0 +1,435 @@
+{
+	"info": {
+		"_postman_id": "195e210e-46f9-4f0e-a8d6-038ec3002d8c",
+		"name": "API Platform - Udemy",
+		"description": "*   [https://github.com/fadilxcoder/symfony/tree/symfony-api-platform-reactjs-full-stack-masterclass](https://github.com/fadilxcoder/symfony/tree/symfony-api-platform-reactjs-full-stack-masterclass)\n*   Laragon / Udemy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18647677"
+	},
+	"item": [
+		{
+			"name": "BlogPost",
+			"item": [
+				{
+					"name": "api/blog_posts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/blog_posts",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"blog_posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/blog_posts/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/blog_posts/8",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"blog_posts",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "api/users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/users",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{$randomCatchPhraseDescriptor}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"password\": \"PostMan4P!\",\r\n    \"retypePassword\": \"PostMan4P!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/users",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/users/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/users/3",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"users",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "api/comments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/comments",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/comments/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/comments/3",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"comments",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dependency - Provider",
+			"item": [
+				{
+					"name": "api/dependencies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/dependencies",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"dependencies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/dependencies/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}api/dependencies/038873e5-62ae-58d6-9efe-2dcc9d4fa18c",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"dependencies",
+								"038873e5-62ae-58d6-9efe-2dcc9d4fa18c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "App - Persister",
+			"item": [
+				{
+					"name": "api/apps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}api/apps",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/apps",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reference\": \"{{$randomJobArea}}\",\r\n    \"date\": \"{{$randomDateRecent}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}api/apps",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api/apps/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}api/apps/2",
+							"host": [
+								"{{BASE_URL}}api"
+							],
+							"path": [
+								"apps",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api/ogin_check",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"fidel81\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}api/login_check",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"login_check"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const loginUrl = pm.collectionVariables.get(\"BASE_URL\") + \"api/login_check\";",
+					"",
+					"pm.sendRequest({",
+					"    url: loginUrl,",
+					"    method: 'POST',",
+					"    header: {",
+					"        'content-type': 'application/json'",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({",
+					"            \"username\": pm.collectionVariables.get(\"USERNAME\"),",
+					"            \"password\": pm.collectionVariables.get(\"PASSWORD\") ",
+					"        })",
+					"        ",
+					"    }",
+					"}, function (err, res) {",
+					"    console.log(res.json().token);",
+					"    pm.collectionVariables.set(\"jwt\",  res.json().token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://symfony-api-platform-react-js-udemy.test:8080/",
+			"type": "string"
+		},
+		{
+			"key": "USERNAME",
+			"value": "fidel81",
+			"type": "string"
+		},
+		{
+			"key": "PASSWORD",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "jwt",
+			"value": ""
+		},
+		{
+			"key": "BASE_URL",
+			"value": "http://symfony.api.udemy.local/",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "USERNAME",
+			"value": "blanca.kautzer",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
