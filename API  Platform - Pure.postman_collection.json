@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "5b65c576-6c43-49e4-accf-dba04af0a48f",
+		"name": "API  Platform - Pure",
+		"description": "*   [https://github.com/fadilxcoder/symfony/tree/pure](https://github.com/fadilxcoder/symfony/tree/pure)\n*   `api-plateform-symfony`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18647677"
+	},
+	"item": [
+		{
+			"name": "/cheeses",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/ld+json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/hal+json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "text/csv",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BASE_URL}}/cheeses",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"cheeses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/cheeses?page=1/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/cheeses?page=2",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"cheeses"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/cheeses?title=Prof",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/cheeses?title=Prof",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"cheeses"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Prof"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list-of-users/11.jsonld?properties[]=email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/list-of-users/11.jsonld?properties[]=email",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"list-of-users",
+						"11.jsonld"
+					],
+					"query": [
+						{
+							"key": "properties[]",
+							"value": "email"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list-of-users/11.jsonld?properties[]=email&properties[cheeseListings][]=title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/list-of-users/11.jsonld?properties[]=email&properties[cheeseListings][]=title",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"list-of-users",
+						"11.jsonld"
+					],
+					"query": [
+						{
+							"key": "properties[]",
+							"value": "email"
+						},
+						{
+							"key": "properties[cheeseListings][]",
+							"value": "title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/cheeses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"fadilxcoder\",\r\n  \"description\": \"hello world !\",\r\n  \"price\": 1500,\r\n  \"owner\": \"/list-of-users/11\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/cheeses",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"cheeses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list-of-users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/list-of-users",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"list-of-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/login_check",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/login_check",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"login_check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/yo-single-cheezzyy/1.jsonld?properties[]=title&properties[]=shortDescription",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/yo-single-cheezzyy/1.jsonld?properties[]=title&properties[]=shortDescription",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"yo-single-cheezzyy",
+						"1.jsonld"
+					],
+					"query": [
+						{
+							"key": "properties[]",
+							"value": "title"
+						},
+						{
+							"key": "properties[]",
+							"value": "shortDescription"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "u99qDU2BVgBgD@i",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "fadilxcoder",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://api.platform.local"
+		}
+	]
+}
