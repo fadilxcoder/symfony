@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "653eac10-46a3-4a3a-a8fa-f8e7c7d08cae",
+		"name": "API Platform - Master",
+		"description": "*   [https://github.com/fadilxcoder/symfony/tree/master](https://github.com/fadilxcoder/symfony/tree/master)\n*   APP `api-plateform-swagger`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18647677"
+	},
+	"item": [
+		{
+			"name": "api/comments/78",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/comments/78",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"comments",
+						"78"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/comments?page=1",
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": false,
+				"followAuthorizationHeader": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/comments?page=1",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "api/posts/11",
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": false,
+				"followAuthorizationHeader": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}api/posts/11",
+					"host": [
+						"{{BASE_URL}}api"
+					],
+					"path": [
+						"posts",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://api-platform.symfony.local/"
+		}
+	]
+}
